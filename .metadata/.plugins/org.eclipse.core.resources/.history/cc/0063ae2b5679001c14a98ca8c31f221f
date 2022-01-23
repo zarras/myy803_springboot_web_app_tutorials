@@ -1,0 +1,45 @@
+package myy803.springboot.sb_tutorial_3_thymeleaf;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
+
+import myy803.springboot.sb_tutorial_3_thymeleaf.dao.EmployeeDAO;
+import myy803.springboot.sb_tutorial_3_thymeleaf.dao.EmployeeDAOJpaImpl;
+import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
+
+@SpringBootTest
+@TestPropertySource(
+  locations = "classpath:application.properties")
+class TestEmployeeDAOJpa {
+	@Autowired 
+	@Qualifier("employeeDAOJpaImpl")
+	EmployeeDAO employeeDAO;
+	
+	// This is wired to a test-specific manager 
+	// that binds to an in memory H2 database only for testing purposes
+	// to avoid using a real DB !!
+	// To use it have to add H2 maven dependency + also use org.junit.vintage
+	@Autowired
+	private TestEntityManager entityManager;
+		
+	@Test
+	void testEmployeeDAOJpaImplIsNotNull() {
+		Assertions.assertNotNull(employeeDAO);
+	}
+
+	@Test
+	void testFindByIdReturnsEmployee() {
+		entityManager.persist(new Employee(1, "a", "b", "c"));
+		
+		Employee storedEmployee = employeeDAO.findById(1);
+		Assertions.assertNotNull(storedEmployee);
+		Assertions.assertEquals("b", storedEmployee.getLastName());
+	}
+}

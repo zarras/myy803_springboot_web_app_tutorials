@@ -1,0 +1,46 @@
+package hibernate;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import hibernate.entity.Route;
+import hibernate.entity.Service;
+import hibernate.entity.Stop;
+
+public class GetRoute {
+	public static void main(String[] args) {
+
+		// ZARRAS ATTENTION DONT FORGET TO ADD ALL CLASSES INVOLVED
+		// create session factory
+		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+								//.addAnnotatedClass(Stop.class)
+								.addAnnotatedClass(Route.class)
+								.addAnnotatedClass(Service.class)
+								.addAnnotatedClass(Stop.class)
+								.buildSessionFactory();
+		
+		// create session
+		Session session = factory.getCurrentSession();
+		
+		try {			
+
+			// start a transaction
+			session.beginTransaction();
+			
+			Route route = session.get(Route.class, 1);
+			
+			System.out.println("Got Route: " + route);
+			System.out.println("Route Stops: " + route.getStops());
+			
+			// commit transaction
+			session.getTransaction().commit();
+			
+			System.out.println("Done!");
+		}
+		finally {
+			factory.close();
+		}
+	}
+
+}

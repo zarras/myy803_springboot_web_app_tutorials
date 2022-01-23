@@ -1,0 +1,23 @@
+package myy803.springboot.sb_tutorial_3_thymeleaf;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
+
+import myy803.springboot.sb_tutorial_3_thymeleaf.dao.EmployeeDAOJpaImpl;
+
+@SpringBootTest
+@TestPropertySource(
+  locations = "classpath:application.properties")
+class TestEmployeeDAOJpa {
+
+	@Test
+	void test() {
+		EmployeeDAOJpaImpl employeeDAOJpaImpl = new EmployeeDAOJpaImpl(null);
+		
+		fail("Not yet implemented");
+	}
+
+}

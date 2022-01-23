@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;sb_tutorial_1_thymeleaf&apos; to &apos;sb_tutorial_1_web&apos;" description="Rename resource &apos;sb_tutorial_1_thymeleaf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/sb_tutorial_1_thymeleaf" name="sb_tutorial_1_web" stamp="1642591085397" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;sb_tutorial_1_web&apos; to &apos;sb_tutorial_1_thymeleaf&apos;" description="Rename resource &apos;sb_tutorial_1_web&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/sb_tutorial_1_web" name="sb_tutorial_1_thymeleaf" stamp="1642591161613" updateReferences="true"/>
+</session>

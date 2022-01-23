@@ -1,0 +1,8 @@
+package myy803.springboot.sb_tutorial_0_jpa.dao;
+
+import myy803.springboot.sb_tutorial_0_jpa.entity.Stop;
+
+public interface StopDAO {
+	public void save(Stop stop);
+	public Stop findById(int theId);
+}

@@ -1,0 +1,37 @@
+package myy803.springboot.sb_tutorial_0_jpa.dao;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import myy803.springboot.sb_tutorial_0_jpa.entity.Stop;
+
+@Repository
+public class StopDAOImpl implements StopDAO{
+
+	private EntityManager entityManager;
+
+	@Autowired
+	public StopDAOImpl(EntityManager entityManager) {
+		super();
+		this.entityManager = entityManager;
+	}
+
+	@Override
+	public void save(Stop stop) {
+		// save or update the employee
+		Stop storedStop = entityManager.merge(stop);	
+	}
+
+	@Override
+	public Stop findById(int theId) {
+		// get employee
+		Stop theEmployee = 
+				entityManager.find(Stop.class, theId);
+		
+		// return employee
+		return theEmployee;
+	}
+}
+
