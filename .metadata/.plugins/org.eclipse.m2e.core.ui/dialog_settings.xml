@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_5_thymeleaf_form_elements"/>
+			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_5_thymeleaf_variety_form_elements"/>
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_1_jpa"/>
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_0_jpa"/>
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_4_thymeleaf_security"/>

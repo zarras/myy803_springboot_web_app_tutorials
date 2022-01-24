@@ -45,9 +45,6 @@ class TestEmployeeController {
 	@Autowired
 	EmployeeController employeeController;
 
-	@Autowired
-	private ObjectMapper objectMapper;
-	
 	@BeforeEach
     public void setup() {
 		mockMvc = MockMvcBuilders

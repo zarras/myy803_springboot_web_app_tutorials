@@ -13,6 +13,8 @@ import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
+	@Autowired
+	@Qualifier("employeeDAOJpaImpl")
 	private EmployeeDAO employeeRepository;
 	
 	@Autowired
@@ -20,6 +22,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository = theEmployeeRepository;
 	}
 	
+	public EmployeeServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	@Transactional
 	public List<Employee> findAll() {

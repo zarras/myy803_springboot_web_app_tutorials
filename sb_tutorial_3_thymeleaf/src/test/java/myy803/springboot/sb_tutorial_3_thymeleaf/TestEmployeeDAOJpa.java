@@ -18,6 +18,7 @@ import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
 @TestPropertySource(
   locations = "classpath:application.properties")
 class TestEmployeeDAOJpa {
+	
 	@Autowired 
 	@Qualifier("employeeDAOJpaImpl")
 	EmployeeDAO employeeDAO;
@@ -33,6 +34,6 @@ class TestEmployeeDAOJpa {
 	void testFindByIdReturnsEmployee() {
 		Employee storedEmployee = employeeDAO.findById(1);
 		Assertions.assertNotNull(storedEmployee);
-		Assertions.assertEquals("Loloa", storedEmployee.getLastName());
+		Assertions.assertEquals("Andrews", storedEmployee.getLastName());
 	}
 }

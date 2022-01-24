@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<title>User Registration Done</title>
+
+</head>
+<body>
+
+
+<div class="container">
+    <h1>User Registration Done</h1>
+    <br>
+    <br>
+    <hr>
+    <span>Full name:</span><span th:text="${user_data.name}"></span><br/>
+    <span>E-mail:</span><span th:text="${user_data.email}"></span><br/>
+    <span>Password:</span><span th:text="${user_data.password}"></span><br/>
+    <span>Gender:</span><span th:text="${user_data.gender}"></span><br/>
+    <span>Profession:</span><span th:text="${user_data.profession}"></span><br/>
+    <span>Married?</span><span th:text="${user_data.married}"></span><br/>
+    <span>Note:</span><span th:text="${user_data.note}"></span><br/>
+    
+    <br><br>
+    
+    <a class="btn btn-primary btn-lg" href="/users/show_form" role="button">Back to User Registration</a>
+    
+</div>
+
+
+</body>
+</html>
