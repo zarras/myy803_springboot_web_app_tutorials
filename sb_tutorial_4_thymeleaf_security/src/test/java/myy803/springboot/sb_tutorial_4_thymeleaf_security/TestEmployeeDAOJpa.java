@@ -1,6 +1,8 @@
 package myy803.springboot.sb_tutorial_4_thymeleaf_security;
 
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

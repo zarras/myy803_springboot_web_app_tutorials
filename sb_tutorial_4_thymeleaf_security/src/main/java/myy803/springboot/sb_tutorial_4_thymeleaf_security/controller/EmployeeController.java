@@ -1,6 +1,7 @@
 package myy803.springboot.sb_tutorial_4_thymeleaf_security.controller;
 
 import java.util.List;
+
 import java.util.logging.Logger;
 
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Employee;
 import myy803.springboot.sb_tutorial_4_thymeleaf_security.service.EmployeeService;
@@ -23,6 +25,7 @@ import myy803.springboot.sb_tutorial_4_thymeleaf_security.service.EmployeeServic
 @SessionAttributes("employees")
 public class EmployeeController {
 
+	@Autowired
 	private EmployeeService employeeService;
 	
 	public EmployeeController(EmployeeService theEmployeeService) {
