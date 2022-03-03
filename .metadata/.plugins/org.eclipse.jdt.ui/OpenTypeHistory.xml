@@ -2,6 +2,6 @@
 <typeInfoHistroy>
 <typeInfo handle="=sb_tutorial_3_thymeleaf/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;myy803.springboot.sb_tutorial_3_thymeleaf.dao{EmployeeDAOJpaImpl.java[EmployeeDAOJpaImpl" modifiers="1" timestamp="1642622927316"/>
 <typeInfo handle="=sb_tutorial_3_thymeleaf/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;myy803.springboot.sb_tutorial_3_thymeleaf.controller{EmployeeController.java[EmployeeController" modifiers="1" timestamp="1642596429466"/>
-<typeInfo handle="=courses_mgt_app_skeleton/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;myy803.courses_mgt_app_skeleton.dao{CourseDAO.java[CourseDAO" modifiers="513" timestamp="1644407001593"/>
-<typeInfo handle="=courses_mgt_app_skeleton/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;myy803.courses_mgt_app_skeleton.service{StudentRegistrationService.java[StudentRegistrationService" modifiers="513" timestamp="1644511608682"/>
+<typeInfo handle="=courses_mgt_app_skeleton/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;myy803.courses_mgt_app_skeleton.dao{CourseDAO.java[CourseDAO" modifiers="513" timestamp="1644578873428"/>
+<typeInfo handle="=courses_mgt_app_skeleton/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;myy803.courses_mgt_app_skeleton.service{StudentRegistrationService.java[StudentRegistrationService" modifiers="513" timestamp="1644680971692"/>
 </typeInfoHistroy>

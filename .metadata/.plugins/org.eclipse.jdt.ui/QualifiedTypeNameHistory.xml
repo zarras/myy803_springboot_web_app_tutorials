@@ -23,8 +23,6 @@
 <fullyQualifiedTypeName name="myy803_springboot_tutorials.sb_tutorial_5_thymeleaf_form_elements.entity.UserData"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
 <fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="myy803.courses_mgt_app_skeleton.service.StudentRegistrationService"/>
 <fullyQualifiedTypeName name="myy803.courses_mgt_app_skeleton.model.StudentRegistration"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 </qualifiedTypeNameHistroy>
