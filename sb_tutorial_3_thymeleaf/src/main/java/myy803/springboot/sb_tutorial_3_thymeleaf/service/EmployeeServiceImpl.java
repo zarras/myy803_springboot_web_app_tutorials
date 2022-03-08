@@ -3,7 +3,6 @@ package myy803.springboot.sb_tutorial_3_thymeleaf.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,11 +13,10 @@ import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
-	@Qualifier("employeeDAOJpaImpl")
 	private EmployeeDAO employeeRepository;
 	
 	@Autowired
-	public EmployeeServiceImpl(@Qualifier("employeeDAOHibernateImpl") EmployeeDAO theEmployeeRepository) {
+	public EmployeeServiceImpl(EmployeeDAO theEmployeeRepository) {
 		employeeRepository = theEmployeeRepository;
 	}
 	

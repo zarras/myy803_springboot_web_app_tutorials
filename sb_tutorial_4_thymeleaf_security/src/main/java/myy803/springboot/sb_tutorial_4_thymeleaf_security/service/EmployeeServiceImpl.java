@@ -14,7 +14,6 @@ import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Employee;
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
-	@Qualifier("employeeDAOJpaImpl")
 	private EmployeeDAO employeeRepository;
 	
 	public EmployeeServiceImpl() {
@@ -22,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Autowired
-	public EmployeeServiceImpl(@Qualifier("employeeDAOJpaImpl") EmployeeDAO theEmployeeRepository) {
+	public EmployeeServiceImpl(EmployeeDAO theEmployeeRepository) {
 		employeeRepository = theEmployeeRepository;
 	}
 	

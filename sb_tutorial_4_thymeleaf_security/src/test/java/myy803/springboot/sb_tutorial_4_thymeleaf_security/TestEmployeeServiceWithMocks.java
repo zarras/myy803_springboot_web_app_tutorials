@@ -43,7 +43,6 @@ class TestEmployeeServiceWithMocks {
 	EmployeeService employeeService;
 	
 	@MockBean
-	@Qualifier(value = "employeeDAOJpaImpl")
 	EmployeeDAO employeeDAO;
 	
 	@Test

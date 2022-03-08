@@ -18,7 +18,6 @@ import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Employee;
   locations = "classpath:application.properties")
 class TestEmployeeDAOJpa {
 	@Autowired 
-	@Qualifier("employeeDAOJpaImpl")
 	EmployeeDAO employeeDAO;
 	
 	@Test

@@ -1,13 +1,13 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security;
+package myy803.springboot.sb_tutorial_3_thymeleaf;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SbTutorial4ThymeleafSecurityApplication {
+public class EmployeeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SbTutorial4ThymeleafSecurityApplication.class, args);
+		SpringApplication.run(EmployeeApplication.class, args);
 	}
 
 }

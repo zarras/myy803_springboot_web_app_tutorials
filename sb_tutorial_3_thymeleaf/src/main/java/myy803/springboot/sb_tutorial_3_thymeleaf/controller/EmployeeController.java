@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
 import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeService;
@@ -53,8 +52,8 @@ public class EmployeeController {
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
-		List<Employee> theEmployees = (List<Employee>) theModel.getAttribute("employees");
-		theEmployees.size();
+		//List<Employee> theEmployees = (List<Employee>) theModel.getAttribute("employees");
+		//theEmployees.size();
 		
 		// get the employee from the service
 		Employee theEmployee = employeeService.findById(theId);

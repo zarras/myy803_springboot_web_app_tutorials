@@ -1,15 +1,12 @@
 package myy803.springboot.sb_tutorial_3_thymeleaf;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import myy803.springboot.sb_tutorial_3_thymeleaf.dao.EmployeeDAO;
 import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
 import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeService;
 
