@@ -41,7 +41,7 @@ public class EmployeeController {
 	
 	// add mapping for "/list"
 
-	@GetMapping("/list")
+	@RequestMapping("/list")
 	public String listEmployees(Model theModel) {
 		
 		// add to the spring model

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ public class EmployeeController {
 	
 	// add mapping for "/list"
 
-	@GetMapping("/list")
+	@RequestMapping("/list")
 	public String listEmployees(Model theModel) {
 		
 		// get employees from db
@@ -37,7 +38,7 @@ public class EmployeeController {
 		return "employees/list-employees";
 	}
 	
-	@GetMapping("/showFormForAdd")
+	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 		
 		// create model attribute to bind form data
@@ -48,7 +49,7 @@ public class EmployeeController {
 		return "employees/employee-form";
 	}
 
-	@GetMapping("/showFormForUpdate")
+	@RequestMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
@@ -66,7 +67,7 @@ public class EmployeeController {
 	}
 	
 	
-	@PostMapping("/save")
+	@RequestMapping("/save")
 	public String saveEmployee(@ModelAttribute("employee") Employee theEmployee) {
 		
 		// save the employee
@@ -77,7 +78,7 @@ public class EmployeeController {
 	}
 	
 	
-	@GetMapping("/delete")
+	@RequestMapping("/delete")
 	public String delete(@RequestParam("employeeId") int theId) {
 		
 		// delete the employee

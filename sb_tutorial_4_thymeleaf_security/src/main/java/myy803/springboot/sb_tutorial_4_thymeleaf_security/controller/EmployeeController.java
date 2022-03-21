@@ -22,7 +22,7 @@ import myy803.springboot.sb_tutorial_4_thymeleaf_security.service.EmployeeServic
 
 @Controller
 @RequestMapping("/employees")
-@SessionAttributes("employees")
+//@SessionAttributes("employees")
 public class EmployeeController {
 
 	@Autowired
@@ -34,7 +34,7 @@ public class EmployeeController {
 	
 	// add mapping for "/list"
 
-	@GetMapping("/list")
+	@RequestMapping("/list")
 	public String listEmployees(Model theModel) {
 		
 		// get employees from db
@@ -53,7 +53,7 @@ public class EmployeeController {
 		return "employees/list-employees";
 	}
 	
-	@GetMapping("/showFormForAdd")
+	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 		
 		// create model attribute to bind form data
@@ -64,7 +64,7 @@ public class EmployeeController {
 		return "employees/employee-form";
 	}
 
-	@GetMapping("/showFormForUpdate")
+	@RequestMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
@@ -82,7 +82,7 @@ public class EmployeeController {
 	}
 	
 	
-	@PostMapping("/save")
+	@RequestMapping("/save")
 	public String saveEmployee(@ModelAttribute("employee") Employee theEmployee, Model theModel) {
 		
 		// save the employee
@@ -93,7 +93,7 @@ public class EmployeeController {
 	}
 	
 	
-	@GetMapping("/delete")
+	@RequestMapping("/delete")
 	public String delete(@RequestParam("employeeId") int theId) {
 		
 		// delete the employee

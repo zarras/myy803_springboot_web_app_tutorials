@@ -16,7 +16,7 @@ import sb_tutorial_5.entity.UserData;
 @RequestMapping("/users")
 public class UserController {
 	
-	@GetMapping("/show_form")
+	@RequestMapping("/show_form")
     public String showForm(Model model) {
         UserData userData = new UserData();
         model.addAttribute("user_data", userData);
@@ -27,9 +27,8 @@ public class UserController {
         return "users/register_form";
     }
 	
-	@PostMapping("/register")
+	@RequestMapping("/register")
 	public String registerUser(@ModelAttribute("user_data")UserData userData) {
-		System.err.println(userData);
 		return "users/register_success";
 	}
 }
