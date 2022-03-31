@@ -37,9 +37,9 @@ CREATE TABLE `employee` (
 insert into users(username, password, enabled)values('zarras','{noop}zarras',true);
 insert into users(username, password, enabled)values('pvassil','{noop}pvassil',true);
  
-insert into authorities(username,authority)values('zarras','ADMIN');
-insert into authorities(username,authority)values('zarras','USER');
-insert into authorities(username,authority)values('pvassil','USER');
+insert into authorities(username,authority)values('zarras','ROLE_ADMIN');
+insert into authorities(username,authority)values('zarras','ROLE_USER');
+insert into authorities(username,authority)values('pvassil','ROLE_USER');
 
  
 --
