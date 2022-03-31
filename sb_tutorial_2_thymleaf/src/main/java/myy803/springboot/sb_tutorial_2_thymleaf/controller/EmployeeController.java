@@ -21,9 +21,8 @@ public class EmployeeController {
 	
 	private List<Employee> theEmployees;
 	
-	@PostConstruct
-	private void loadData() {
-		
+	
+	public EmployeeController() {
 		// create employees
 		Employee emp1 = new Employee(1, "Leslie", "Andrews", "leslie@luv2code.com");
 		Employee emp2 = new Employee(2, "Emma", "Baumgarten", "emma@luv2code.com");
@@ -31,12 +30,11 @@ public class EmployeeController {
 
 		// create the list
 		theEmployees = new ArrayList<>();
-		
+				
 		// add to the list
 		theEmployees.add(emp1);
 		theEmployees.add(emp2);
 		theEmployees.add(emp3);
-	
 	}
 	
 	// add mapping for "/list"

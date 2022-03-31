@@ -2,6 +2,7 @@ package myy803.springboot.sb_tutorial_3_thymeleaf.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,8 +19,10 @@ import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeService;
 @RequestMapping("/employees")
 public class EmployeeController {
 
+	@Autowired
 	private EmployeeService employeeService;
 	
+	@Autowired
 	public EmployeeController(EmployeeService theEmployeeService) {
 		employeeService = theEmployeeService;
 	}
@@ -45,7 +48,7 @@ public class EmployeeController {
 		Employee theEmployee = new Employee();
 		
 		theModel.addAttribute("employee", theEmployee);
-		
+
 		return "employees/employee-form";
 	}
 
@@ -53,14 +56,12 @@ public class EmployeeController {
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
-		//List<Employee> theEmployees = (List<Employee>) theModel.getAttribute("employees");
-		//theEmployees.size();
-		
 		// get the employee from the service
 		Employee theEmployee = employeeService.findById(theId);
 		
 		// set employee as a model attribute to pre-populate the form
 		theModel.addAttribute("employee", theEmployee);
+		
 		
 		// send over to our form
 		return "employees/employee-form";			
@@ -68,12 +69,11 @@ public class EmployeeController {
 	
 	
 	@RequestMapping("/save")
-	public String saveEmployee(@ModelAttribute("employee") Employee theEmployee) {
+	public String saveEmployee(Employee theEmployee){
 		
 		// save the employee
 		employeeService.save(theEmployee);
-		
-		// use a redirect to prevent duplicate submissions
+		// redirect to /employees/list ACTION
 		return "redirect:/employees/list";
 	}
 	
@@ -84,7 +84,7 @@ public class EmployeeController {
 		// delete the employee
 		employeeService.deleteById(theId);
 		
-		// redirect to /employees/list
+		// redirect to /employees/list ACTION
 		return "redirect:/employees/list";
 		
 	}

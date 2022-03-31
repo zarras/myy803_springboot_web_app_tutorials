@@ -17,8 +17,6 @@ class TestEmployeeDAOJpa {
 	
 	@Autowired 
 	EmployeeDAO employeeDAO;
-	
-	
 		
 	@Test
 	void testEmployeeDAOJpaImplIsNotNull() {

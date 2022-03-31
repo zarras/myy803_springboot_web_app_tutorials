@@ -22,7 +22,7 @@ import myy803.springboot.sb_tutorial_3_thymeleaf.dao.*;
 //@TestPropertySource(
 //  locations = "classpath:application.properties")
 //@RunWith(SpringRunner.class)
-@ExtendWith(SpringExtension.class)
+@ExtendWith(SpringExtension.class) // extends junit with spring test capabilities
 class TestEmployeeServiceWithMocks {
 
 	@TestConfiguration
@@ -38,7 +38,6 @@ class TestEmployeeServiceWithMocks {
 	EmployeeService employeeService;
 	
 	@MockBean
-	//@Qualifier(value = "employeeDAOJpaImpl")
 	EmployeeDAO employeeDAO;
 	
 	@Test
@@ -49,6 +48,7 @@ class TestEmployeeServiceWithMocks {
 	@Test
 	void testFindByIdReturnsEmployee() {
 		Mockito.when(employeeDAO.findById(1)).thenReturn(new Employee(1, "", "Andrews", ""));
+		
 		Employee storedEmployee = employeeService.findById(1);
 		Assertions.assertNotNull(storedEmployee);
 		Assertions.assertEquals("Andrews", storedEmployee.getLastName());

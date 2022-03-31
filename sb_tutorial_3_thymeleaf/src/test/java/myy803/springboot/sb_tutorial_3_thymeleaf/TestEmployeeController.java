@@ -71,22 +71,11 @@ class TestEmployeeController {
 	    multiValueMap.add("lastName", employee.getLastName());
 	    multiValueMap.add("email", employee.getEmail());
 	    
-		//MvcResult result = 
 		mockMvc.perform(
 				post("/employees/save")
-				//.contentType(MediaType.APPLICATION_FORM_URLENCODED)
 			    .params(multiValueMap))
 				.andExpect(status().isFound())
 				.andExpect(view().name("redirect:/employees/list"));
-				//.andReturn();
-				
-		//Assertions.assertEquals(
-			//	"Lola", result.getResponse().getContentAsString()
-				//);
-		
-				//Assertions.assertTrue(
-				//		result.getResponse().getContentAsString().equals("Lola")
-				//		);
-				//.andExpect(view().name("employees/list-employees"));		
+						
 	}
 }
