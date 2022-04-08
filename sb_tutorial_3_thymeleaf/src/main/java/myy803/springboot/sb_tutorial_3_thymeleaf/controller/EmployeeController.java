@@ -1,5 +1,6 @@
 package myy803.springboot.sb_tutorial_3_thymeleaf.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class EmployeeController {
 		Employee theEmployee = new Employee();
 		
 		theModel.addAttribute("employee", theEmployee);
-
+		
 		return "employees/employee-form";
 	}
 
@@ -69,10 +70,18 @@ public class EmployeeController {
 	
 	
 	@RequestMapping("/save")
-	public String saveEmployee(Employee theEmployee){
-		
+	public String saveEmployee(@ModelAttribute("employee") Employee theEmployee){
+		/*
+		 *  @ModelAttribute("employee") -  this is how to get
+		 *  a reference to the object holding the data entered 
+		 *  in a form.
+		 *  https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-ann-modelattrib
+		 *
+		 */
+				
 		// save the employee
 		employeeService.save(theEmployee);
+		
 		// redirect to /employees/list ACTION
 		return "redirect:/employees/list";
 	}

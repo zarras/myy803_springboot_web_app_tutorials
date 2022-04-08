@@ -31,8 +31,13 @@ public class EmployeeApplicationSecurityConfig extends WebSecurityConfigurerAdap
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/**").hasAnyRole("USER", "ADMIN").and().formLogin();		
-		//http.logout();
+		http
+		.authorizeRequests() // the requests will be authenticated
+		.antMatchers("/*").hasAnyRole("USER", "ADMIN") // match specific apache ant reg exprs for urls and specify rights
+		.antMatchers("/login*").permitAll()
+		.anyRequest().authenticated()
+		.and() // get back the http security object and chain configurations 
+		.formLogin(); // specifically generate a default login page
 	}
 	
 		

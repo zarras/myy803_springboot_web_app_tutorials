@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
-<fullyQualifiedTypeName name="org.springframework.boot.test.context.TestConfiguration"/>
-<fullyQualifiedTypeName name="myy803.springboot.sb_tutorial_4_thymeleaf_security.service.EmployeeServiceImpl"/>
-<fullyQualifiedTypeName name="org.springframework.test.web.servlet.MvcResult"/>
 <fullyQualifiedTypeName name="myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Employee"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectReader"/>
@@ -55,9 +51,13 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="myy803.courses_mgt_app_skeleton.dao.CourseRepository"/>
 <fullyQualifiedTypeName name="myy803.courses_mgt_app_skeleton.dao.StudentRegistrationRepository"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
+<fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.builders.HttpSecurity"/>
+<fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.builders.WebSecurity"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

@@ -27,8 +27,8 @@
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item key="renameSubpackages" value="true"/>
-		<item key="updateTextualMatches" value="false"/>
-		<item key="updateQualifiedNames" value="false"/>
+		<item key="updateTextualMatches" value="true"/>
+		<item key="updateQualifiedNames" value="true"/>
 		<item key="patterns" value="*"/>
 		<item key="updateSimilarElements" value="false"/>
 		<item key="updateSimilarElementsMatchStrategy" value="1"/>
@@ -37,7 +37,7 @@
 		<item key="pageIndex" value="3"/>
 	</section>
 	<section name="RefactoringWizard.preview">
-		<item key="width" value="600"/>
+		<item key="width" value="630"/>
 		<item key="height" value="400"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.dialogs.FilteredTypesSelectionDialog">

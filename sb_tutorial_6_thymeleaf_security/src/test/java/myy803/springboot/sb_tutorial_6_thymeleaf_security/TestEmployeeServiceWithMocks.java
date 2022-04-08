@@ -1,4 +1,4 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security;
+package myy803.springboot.sb_tutorial_6_thymeleaf_security;
 
 import org.junit.jupiter.api.Assertions;
 

@@ -1,4 +1,4 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security;
+package myy803.springboot.sb_tutorial_6_thymeleaf_security;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -63,7 +63,7 @@ class TestEmployeeController {
 	}
 	
 	
-	@WithMockUser(value = "john")
+	@WithMockUser(value = "zarras")
 	@Test 
 	void testListEmployeesReturnsPage() throws Exception {
 		mockMvc.perform(get("/employees/list")).
@@ -71,7 +71,7 @@ class TestEmployeeController {
 		andExpect(view().name("employees/list-employees"));		
 	}
 
-	@WithMockUser(value = "john")
+	@WithMockUser(value = "zarras")
 	@Test 
 	void testSaveEmployeeReturnsPage() throws Exception {
 		
@@ -83,22 +83,11 @@ class TestEmployeeController {
 	    multiValueMap.add("lastName", employee.getLastName());
 	    multiValueMap.add("email", employee.getEmail());
 	    
-		//MvcResult result = 
 		mockMvc.perform(
 				post("/employees/save")
 				//.contentType(MediaType.APPLICATION_FORM_URLENCODED)
 			    .params(multiValueMap))
 				.andExpect(status().isFound())
-				.andExpect(view().name("redirect:/employees/list"));
-				//.andReturn();
-				
-		//Assertions.assertEquals(
-			//	"Lola", result.getResponse().getContentAsString()
-				//);
-		
-				//Assertions.assertTrue(
-				//		result.getResponse().getContentAsString().equals("Lola")
-				//		);
-				//.andExpect(view().name("employees/list-employees"));		
+				.andExpect(view().name("redirect:/employees/list"));	
 	}
 }

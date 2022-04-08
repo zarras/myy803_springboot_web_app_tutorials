@@ -11,9 +11,9 @@
 	</parent>
 	
 	<groupId>myy803.springboot</groupId>
-	<artifactId>sb_tutorial_4_thymeleaf_security</artifactId>
+	<artifactId>sb_tutorial_6_thymeleaf_security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sb_tutorial_4_thymeleaf_security</name>
+	<name>sb_tutorial_6_thymeleaf_security</name>
 	<description>Demo project for Spring Boot</description>
 	
 	<properties>

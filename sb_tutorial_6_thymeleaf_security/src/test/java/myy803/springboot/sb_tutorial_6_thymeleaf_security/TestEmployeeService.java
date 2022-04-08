@@ -1,33 +1,30 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security;
-
-
-import javax.transaction.Transactional;
+package myy803.springboot.sb_tutorial_6_thymeleaf_security;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import myy803.springboot.sb_tutorial_6_thymeleaf_security.dao.*;
 import myy803.springboot.sb_tutorial_6_thymeleaf_security.entity.Employee;
+import myy803.springboot.sb_tutorial_6_thymeleaf_security.service.EmployeeService;
 
 @SpringBootTest
 @TestPropertySource(
   locations = "classpath:application.properties")
-class TestEmployeeDAOJpa {
+class TestEmployeeService {
+
 	@Autowired 
-	EmployeeDAO employeeDAO;
+	EmployeeService employeeService;
 	
 	@Test
 	void testEmployeeDAOJpaImplIsNotNull() {
-		Assertions.assertNotNull(employeeDAO);
+		Assertions.assertNotNull(employeeService);
 	}
 
 	@Test
 	void testFindByIdReturnsEmployee() {
-		Employee storedEmployee = employeeDAO.findById(1);
+		Employee storedEmployee = employeeService.findById(1);
 		Assertions.assertNotNull(storedEmployee);
 		Assertions.assertEquals("Andrews", storedEmployee.getLastName());
 	}

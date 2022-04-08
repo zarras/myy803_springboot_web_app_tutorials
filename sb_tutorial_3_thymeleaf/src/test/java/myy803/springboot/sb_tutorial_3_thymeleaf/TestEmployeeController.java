@@ -56,8 +56,8 @@ class TestEmployeeController {
 	@Test 
 	void testListEmployeesReturnsPage() throws Exception {
 		mockMvc.perform(get("/employees/list")).
-		andExpect(status().isOk()).
-		andExpect(view().name("employees/list-employees"));		
+		andExpect(status().isOk()). // adds result matchers that check some property
+		andExpect(view().name("employees/list-employees")); // adds view matchers that check some property		
 	}
 
 	@Test 
