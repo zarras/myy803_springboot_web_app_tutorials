@@ -56,4 +56,8 @@ class TestEmployeeServiceWithMocks {
 		Assertions.assertNotNull(storedEmployee);
 		Assertions.assertEquals("Andrews", storedEmployee.getLastName());
 	}
+	/*
+	 * See also Mockito.mock(), Mockito.spy(), Mockito.verify(<objectCalled>).<methodCalled>()
+	 * 
+	 */
 }

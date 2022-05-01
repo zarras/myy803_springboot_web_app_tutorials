@@ -30,6 +30,10 @@ import myy803.springboot.sb_tutorial_4_thymeleaf_security.dao.*;
 @ExtendWith(SpringExtension.class)
 class TestEmployeeServiceWithMocks {
 
+	/*
+	 * @TestConfiguration can be used to 
+	 * define additional beans or customizations for a test
+	 */
 	@TestConfiguration
     static class EmployeeServiceImplTestContextConfiguration {
  

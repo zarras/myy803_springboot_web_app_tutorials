@@ -23,7 +23,10 @@ public class EmployeeApplicationSecurityConfig extends WebSecurityConfigurerAdap
 	@Autowired
     DataSource dataSource;
 
-	//Enable jdbc authentication
+	/*
+	 * @Autowired methods are config methods
+	 * This one enables jdbc authentication
+	 */
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource);
@@ -32,12 +35,23 @@ public class EmployeeApplicationSecurityConfig extends WebSecurityConfigurerAdap
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-		.authorizeRequests() // the requests will be authenticated
+		.authorizeRequests() 
+		/*
+		 * authorizeRequests returns an ExpressionInterceptUrlRegistry that 
+		 * allows restricting access to uris based on 
+		 * RequestMatcher implementations
+		 */
 		.antMatchers("/*").hasAnyRole("USER", "ADMIN") // match specific apache ant reg exprs for urls and specify rights
 		.antMatchers("/login*").permitAll()
 		.anyRequest().authenticated()
-		.and() // get back the http security object and chain configurations 
-		.formLogin(); // specifically generate a default login page
+		/*
+		 * returns the http security object and allows to compose 
+		 * multiple chains of configuration method calls
+		 */
+		.and() 
+		.formLogin(); // specifically this method tells spring to generate a default login page
+	
+		// .loginPage(...).loginProcessingUrl(...)
 	}
 	
 		

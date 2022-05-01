@@ -18,13 +18,13 @@ import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeServiceImpl;
 import myy803.springboot.sb_tutorial_3_thymeleaf.dao.*;
 
 
-//@SpringBootTest
-//@TestPropertySource(
-//  locations = "classpath:application.properties")
-//@RunWith(SpringRunner.class)
 @ExtendWith(SpringExtension.class) // extends junit with spring test capabilities
 class TestEmployeeServiceWithMocks {
 
+	/*
+	 * @TestConfiguration can be used to 
+	 * define additional beans or customizations for a test
+	 */
 	@TestConfiguration
     static class EmployeeServiceImplTestContextConfiguration {
  
@@ -38,7 +38,7 @@ class TestEmployeeServiceWithMocks {
 	EmployeeService employeeService;
 	
 	@MockBean
-	EmployeeDAO employeeDAO;
+	EmployeeDAO employeeRepository;
 	
 	@Test
 	void testEmployeeDAOJpaImplIsNotNull() {
@@ -47,9 +47,9 @@ class TestEmployeeServiceWithMocks {
 
 	@Test
 	void testFindByIdReturnsEmployee() {
-		Mockito.when(employeeDAO.findById(1)).thenReturn(new Employee(1, "", "Andrews", ""));
+		Mockito.when(employeeRepository.findById(2)).thenReturn(new Employee(2, "", "Andrews", ""));
 		
-		Employee storedEmployee = employeeService.findById(1);
+		Employee storedEmployee = employeeService.findById(2);
 		Assertions.assertNotNull(storedEmployee);
 		Assertions.assertEquals("Andrews", storedEmployee.getLastName());
 	}

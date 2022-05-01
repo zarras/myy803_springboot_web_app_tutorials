@@ -11,6 +11,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/*
+ * @Configuration Indicates that a class declares one or more 
+ * @Bean methods and may be processed by the 
+ * Spring container to generate bean definitions 
+ * and service requests for those beans at runtime. 
+ * The class may also have code that configures other 
+ * spring functionalities. 
+ */
 @Configuration
 @EnableWebSecurity
 public class EmployeeApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -40,31 +48,7 @@ public class EmployeeApplicationSecurityConfig extends WebSecurityConfigurerAdap
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 	    return new BCryptPasswordEncoder();
-	}
-
-	/* ZAS keep it simple - No need for custom login page
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-
-		http.authorizeRequests()
-			.antMatchers("/employees/showForm*").hasAnyRole("MANAGER", "ADMIN")
-			.antMatchers("/employees/save*").hasAnyRole("MANAGER", "ADMIN")
-			.antMatchers("/employees/delete").hasRole("ADMIN")
-			.antMatchers("/employees/**").hasRole("EMPLOYEE")
-			.antMatchers("/resources/**").permitAll()
-			.and()
-			.formLogin()
-				.loginPage("/showMyLoginPage")
-				.loginProcessingUrl("/authenticateTheUser")
-				.permitAll()
-			.and()
-			.logout().permitAll()
-			.and()
-			.exceptionHandling().accessDeniedPage("/access-denied");
-		
-	}
-	*/
-		
+	}	
 }
 
 
