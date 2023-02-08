@@ -2,19 +2,12 @@ package myy803.springboot.sb_tutorial_6_thymeleaf_security.controller;
 
 import java.util.List;
 
-import java.util.logging.Logger;
 
-import org.slf4j.LoggerFactory;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import myy803.springboot.sb_tutorial_6_thymeleaf_security.entity.Employee;
 import myy803.springboot.sb_tutorial_6_thymeleaf_security.service.EmployeeService;
@@ -69,8 +62,8 @@ public class EmployeeController {
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
-		List<Employee> theEmployees = (List<Employee>) theModel.getAttribute("employees");
-		theEmployees.size();
+		//List<Employee> theEmployees = (List<Employee>) theModel.getAttribute("employees");
+		//theEmployees.size();
 		
 		// get the employee from the service
 		Employee theEmployee = employeeService.findById(theId);

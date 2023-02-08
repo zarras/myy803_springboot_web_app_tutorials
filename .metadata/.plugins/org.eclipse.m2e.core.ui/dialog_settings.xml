@@ -2,6 +2,11 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-web-app-tutorials\sb_tutorial_7_signup_signin"/>
+			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\spring-boot-registration-login-main"/>
+			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\Login-Register-using-Spring-Boot-master"/>
+			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\2023-project"/>
+			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\2023-project\diplomas_mgt_app_skeleton"/>
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-jpa\myy803_jpa_tutorial_0"/>
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\2022-project\courses_mgt_app_skeleton"/>
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_5_thymeleaf_form_elements"/>
@@ -12,8 +17,6 @@
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_3_thymeleaf"/>
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_2_thymleaf"/>
 			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_1_thymeleaf"/>
-			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\sb_tutorial_0"/>
-			<item value="C:\Users\zarras\Documents\zarras-home\doc\courses\soft-eng\slides\spring-stuff\myy803-springboot-tutorials\myy803_springboot_tutorial_0"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
