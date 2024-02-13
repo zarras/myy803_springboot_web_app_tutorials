@@ -1,6 +1,7 @@
 package myy803.springboot.sb_tutorial_7_signup_signin.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,29 +18,49 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import myy803.springboot.sb_tutorial_7_signup_signin.service.UserServiceImpl;
 
 
+/*
+ * @Configuration Indicates that a class declares one or more 
+ * @Bean methods and may be processed by the 
+ * Spring container to generate bean definitions 
+ * and service requests for those beans at runtime. 
+ * The class may also have code that configures other 
+ * spring functionalities. 
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
+	/*
+	 * 
+	 * Authentication configuration
+	 * 
+	 */
+	
     @Autowired
     private CustomSecuritySuccessHandler customSecuritySuccessHandler;
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new UserServiceImpl();
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
+    
+	@Bean 
+	public UserDetailsService userDetailsService() { 
+		 return new UserServiceImpl(); 
+	}
+	 
+	@Bean 
+	public BCryptPasswordEncoder passwordEncoder() { 
+		return new BCryptPasswordEncoder(); 
+	}
+    
+	@Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
     }
 
-    @Bean
+    /*
+     * DaoAuthenticationProvider is an AuthenticationProvider implementation that uses 
+     * a UserDetailsService 
+     * and PasswordEncoder 
+     * to authenticate a username and password.
+     */
+	@Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
@@ -49,41 +70,64 @@ public class WebSecurityConfig {
         return authProvider;
     }
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
-                http.authorizeRequests()
-                // URL matching for accessibility
-                .antMatchers("/", "/login", "/register", "/save").permitAll()
-                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
-                .antMatchers("/user/**").hasAnyAuthority("USER") // ??? ZAS is this needed ??? - changed from account to user
-                .anyRequest().authenticated()
-                .and()
-                // form login
-                .csrf().disable().formLogin()
-                .loginPage("/login")
-                .failureUrl("/login?error=true")
-                .successHandler(customSecuritySuccessHandler)
-               .usernameParameter("username")
-               .passwordParameter("password")
-                .and()
-                // logout
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/")
-                .and()
-                .exceptionHandling()
-                .accessDeniedPage("/access-denied");
+    /*
+     * Authorization configuration .... 
+     */
+    
+	@Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    	
+                http.authorizeHttpRequests(
+                		(authz) -> authz
+                		.requestMatchers("/", "/login", "/register", "/save").permitAll()
+                        .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
+                        .requestMatchers("/user/**").hasAnyAuthority("USER") // ??? ZAS is this needed ??? - changed from account to user
+                        .anyRequest().authenticated()
+                		);
+                
+                http.formLogin(fL -> fL.loginPage("/login")
+                		.failureUrl("/login?error=true")
+                        .successHandler(customSecuritySuccessHandler)
+                        .usernameParameter("username")
+                        .passwordParameter("password"));
+                
+                http.logout(logOut -> logOut.logoutUrl("/logout")
+                		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                		.logoutSuccessUrl("/")
+                		);
 
                 http.authenticationProvider(authenticationProvider());
-                http.headers().frameOptions().sameOrigin();
 
                 return http.build();
     }
-
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().antMatchers("/images/**", "/js/**", "/webjars/**");
-    }
-
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//
+//                http.authorizeRequests()
+//                // URL matching for accessibility
+//                .antMatchers("/", "/login", "/register", "/save").permitAll()
+//                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
+//                .antMatchers("/user/**").hasAnyAuthority("USER") 
+//                .anyRequest().authenticated() // any request should be authenticated
+//                .and()
+//                // customize login
+//                .formLogin()
+//                .loginPage("/login")
+//                .successHandler(customSecuritySuccessHandler)
+//               .usernameParameter("username")
+//               .passwordParameter("password")
+//                .and()
+//                // customize logout
+//                .logout()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//                .logoutSuccessUrl("/")
+//                .and()
+//                .exceptionHandling()
+//                .accessDeniedPage("/access-denied");
+//
+//                http.authenticationProvider(authenticationProvider());
+//                http.headers().frameOptions().sameOrigin();
+//    	
+//                return http.build();
+//    }
 }

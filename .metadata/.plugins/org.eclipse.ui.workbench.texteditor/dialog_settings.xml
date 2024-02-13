@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="professor"/>
+		<item key="selection" value="bcr"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="bcr"/>
+			<item value="getpass"/>
+			<item value="success"/>
+			<item value="builder"/>
+			<item value="test"/>
 			<item value="student"/>
 			<item value="Student"/>
 			<item value="studentID"/>
@@ -18,10 +23,6 @@
 			<item value="error"/>
 			<item value="@bean"/>
 			<item value="bean"/>
-			<item value="test"/>
-			<item value="hidden"/>
-			<item value="mysq"/>
-			<item value="context"/>
 		</list>
 		<list key="replacehistory">
 			<item value="professor"/>
@@ -29,10 +30,10 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1353"/>
-		<item key="DIALOG_Y_ORIGIN" value="292"/>
-		<item key="DIALOG_WIDTH" value="336"/>
-		<item key="DIALOG_HEIGHT" value="454"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_X_ORIGIN" value="1299"/>
+		<item key="DIALOG_Y_ORIGIN" value="327"/>
+		<item key="DIALOG_WIDTH" value="385"/>
+		<item key="DIALOG_HEIGHT" value="523"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
 	</section>
 </section>

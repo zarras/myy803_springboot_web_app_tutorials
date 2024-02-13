@@ -34,11 +34,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return storedUser.isPresent();
 	}
 
+	// Method defined in Spring Security UserDetailsService interface
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		 return userDAO.findByUsername(username).orElseThrow(
+		// orElseThrow method of Optional container that throws an exception if Optional result  is null
+		return userDAO.findByUsername(username).orElseThrow(
 	                ()-> new UsernameNotFoundException(
-	                        String.format("USER_NOT_FOUND", username)
+	                        String.format("USER_NOT_FOUND %s", username)
 	                ));
 	}
 }
