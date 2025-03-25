@@ -43,8 +43,8 @@
 		<item key="pageIndex" value="2"/>
 	</section>
 	<section name="RefactoringWizard.preview">
-		<item key="width" value="860"/>
-		<item key="height" value="585"/>
+		<item key="width" value="900"/>
+		<item key="height" value="625"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.dialogs.FilteredTypesSelectionDialog">
 		<item key="ShowStatusLine" value="true"/>

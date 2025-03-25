@@ -13,9 +13,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 
 import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
+import myy803.springboot.sb_tutorial_3_thymeleaf.mappers.*;
 import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeService;
 import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeServiceImpl;
-import myy803.springboot.sb_tutorial_3_thymeleaf.dao.*;
 
 
 @ExtendWith(SpringExtension.class) // extends junit with spring test capabilities
@@ -38,7 +38,7 @@ class TestEmployeeServiceWithMocks {
 	EmployeeService employeeService;
 	
 	@MockBean
-	EmployeeDAO employeeRepository;
+	EmployeeMapper employeeRepository;
 	
 	@Test
 	void testEmployeeDAOJpaImplIsNotNull() {

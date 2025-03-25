@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=courses_mgt_app_skeleton/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;myy803.courses_mgt_app_skeleton.dao{CourseDAO.java[CourseDAO" modifiers="513" timestamp="1644578873428"/>
-    <typeInfo handle="=courses_mgt_app_skeleton/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;myy803.courses_mgt_app_skeleton.service{StudentRegistrationService.java[StudentRegistrationService" modifiers="513" timestamp="1644680971692"/>
-    <typeInfo handle="=sb_tutorial_7_signup_signin/C:\/Users\/zarras\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/2.7.6\/spring-data-jpa-2.7.6.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/2.7.6=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1673861274421"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

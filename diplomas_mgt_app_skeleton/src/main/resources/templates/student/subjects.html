@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Subjects Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Subjects Directory</h3>
+	<hr>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Subject Id</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Available</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="subject : ${subjects}">
+			
+				<td th:text="${subject.id}" />	
+				<td th:text="${subject.title}" />	
+				<td th:text="${subject.description}" />
+				<td th:text="${subject.available}" />		
+				<td>
+					<!-- Add "update" button/link -->
+					<a th:href="@{/student/apply_to_subject(selected_subject_id=${subject.id})}"
+					   class="btn btn-info btn-sm btn-block">
+						Apply to Subject
+					</a>
+					<br>
+					
+					<!-- Add "registrations" button/link -->					
+					<a th:href="@{/student/view_subject(selected_subject_id=${subject.id})}"
+					   class="btn btn-info btn-sm btn-block">
+						View Subject
+					</a>	
+					<br>
+	
+				</td>
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+	<a th:href="@{/student/dashboard}">Back to Student Dashboard</a>
+	
+</div>
+	
+</body>
+</html>
+
+
+

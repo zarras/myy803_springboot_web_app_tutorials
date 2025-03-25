@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Diploma Theses Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Diploma Theses Directory</h3>
+	<hr>
+	
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Thesis Id</th>
+				<th>Student Full Name</th>
+				<th>Subject Title</th>
+				<th>Report Grade</th>
+				<th>Presentation Grade</th>
+				<th>Implementation Grade</th>
+				<th>Total Grade</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="thesis : ${theses}">
+			
+				<td th:text="${thesis.id}" />	
+				<!--   <td th:text="${subject_titles[stat.index]}" />	-->
+				<!--   <td th:text="${applicant_names[stat.index]}" /> -->
+				<td th:text="${thesis.student.fullName}" />
+				<td th:text="${thesis.subject.title}" />
+				<td th:text="${thesis.reportGrade}" />
+				<td th:text="${thesis.presentationGrade}" />
+				<td th:text="${thesis.implementationGrade}" />
+				<td th:text="${thesis.thesisTotalGrade}" />
+				
+				<td>
+					<a th:href="@{/professor/show_thesis_grades_form(selected_thesis_id=${thesis.id})}"
+					   class="btn btn-info btn-sm btn-block">
+						Grade Thesis
+					</a>
+					<br>
+					
+					<a th:href="@{/professor/delete_subject(selected_subject_id=${thesis.id})}"
+					   class="btn btn-danger btn-sm btn-block"
+					   onclick="if (!(confirm('Are you sure you want to delete this course?'))) return false">
+						Delete Thesis
+					</a>
+								
+				</td>
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+	<a th:href="@{/professor/dashboard}">Back to Professor Dashboard</a>
+	
+</div>
+	
+</body>
+</html>
+
+
+

@@ -26,8 +26,10 @@ public class CustomSecuritySuccessHandler extends SimpleUrlAuthenticationSuccess
 	    		HttpServletResponse response, 
 	    		Authentication authentication)
 	    throws java.io.IOException {
-	        String targetUrl = determineTargetUrl(authentication);
-	        if(response.isCommitted()) return;
+	       
+		 	String targetUrl = determineTargetUrl(authentication);
+	        
+		 	if(response.isCommitted()) return;
 	        RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	        redirectStrategy.sendRedirect(request, response, targetUrl);
 	    }

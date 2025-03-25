@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Subjects Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Subjects Directory</h3>
+	<hr>
+	
+	<!-- Add a button -->
+	<a th:href="@{/professor/show_subject_form}"
+		class="btn btn-primary btn-sm mb-3">
+		Add Subject
+	</a>
+	
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Subject Id</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Available</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="subject : ${subjects}">
+			
+				<td th:text="${subject.id}" />	
+				<td th:text="${subject.title}" />	
+				<td th:text="${subject.description}" />
+				<td th:text="${subject.available}" />		
+				<td>
+					<a th:href="@{/professor/show_subject_form_for_update(selected_subject_id=${subject.id})}"
+					   class="btn btn-info btn-sm btn-block">
+						Update Subject
+					</a>
+					<br>
+					
+					<a th:href="@{/professor/list_applications(selected_subject_id=${subject.id})}"
+					   class="btn btn-info btn-sm btn-block">
+						Show Applications
+					</a>	
+					<br>
+					
+					<a th:href="@{/professor/assign_subject(selected_subject_id=${subject.id})}"
+					   class="btn btn-info btn-sm btn-block">
+						Assign Subject
+					</a>	
+					<br>
+					
+					<a th:href="@{/professor/delete_subject(selected_subject_id=${subject.id})}"
+					   class="btn btn-danger btn-sm btn-block"
+					   onclick="if (!(confirm('Are you sure you want to delete this course?'))) return false">
+						Delete Subject
+					</a>
+								
+				</td>
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+	<a th:href="@{/professor/dashboard}">Back to Professor Dashboard</a>
+	
+</div>
+	
+</body>
+</html>
+
+
+
