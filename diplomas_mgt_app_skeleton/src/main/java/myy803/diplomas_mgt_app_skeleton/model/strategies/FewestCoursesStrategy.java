@@ -1,9 +1,7 @@
 package myy803.diplomas_mgt_app_skeleton.model.strategies;
 
-import java.util.List;
 
 import myy803.diplomas_mgt_app_skeleton.model.Application;
-import myy803.diplomas_mgt_app_skeleton.model.Student;
 
 public class FewestCoursesStrategy extends TemplateStrategyAlgorithm {
 

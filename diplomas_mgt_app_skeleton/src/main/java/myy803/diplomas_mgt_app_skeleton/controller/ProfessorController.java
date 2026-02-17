@@ -15,7 +15,6 @@ import myy803.diplomas_mgt_app_skeleton.model.Professor;
 import myy803.diplomas_mgt_app_skeleton.model.Subject;
 import myy803.diplomas_mgt_app_skeleton.model.Thesis;
 import myy803.diplomas_mgt_app_skeleton.service.ProfessorService;
-import myy803.diplomas_mgt_app_skeleton.service.SubjectService;
 import myy803.diplomas_mgt_app_skeleton.service.UserService;
 
 @Controller
@@ -26,9 +25,6 @@ public class ProfessorController {
 	
 	@Autowired
     ProfessorService professorService;
-	
-	@Autowired
-	SubjectService subjectService;
 	
     @RequestMapping("/professor/dashboard")
     public String getProfessorMainMenu(){
@@ -111,25 +107,7 @@ public class ProfessorController {
 		String username = authentication.getName();
 		
 		professorService.assignSubject(username, subjectId);
-		
-//		Subject subject = subjectService.findById(subjectId);
-//		List<Application> applications = subject.getApplications();		
-//		
-//		if(applications.size() > 0) {
-//			Thesis newThesis = new Thesis();
-//			
-//			Professor supervisor = professorService.findById(username);
-//			newThesis.setSupervisor(supervisor);
-//
-//			Student firstApplicant = applications.get(0).getApplicant();
-//			newThesis.setStudent(firstApplicant);
-//			newThesis.setSubject(subject);
-//			
-//			supervisor.addThesis(newThesis);
-//			
-//			professorService.saveProfile(supervisor);
-//		}
-		
+				
     	return "redirect:/professor/list_subjects";
     }
     
@@ -138,10 +116,6 @@ public class ProfessorController {
        
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String username = authentication.getName();
-		
-		//Professor professor = professorService.findById(username);
-		
-		//List<Thesis> theses = professor.getTheses();
 		
 		List<Thesis> theses = professorService.listProfessorTheses(username);
 		
