@@ -12,6 +12,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     	 * ViewControllerRegistry allows to create 
     	 * simple automated controllers pre-configured 
     	 * with status code and/or a view
+    	 * In Fowler's Terms this is a Page controller
     	 */
         registry.addViewController("/").setViewName("homepage");
     }

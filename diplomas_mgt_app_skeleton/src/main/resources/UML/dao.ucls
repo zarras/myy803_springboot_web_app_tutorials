@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
-  <interface id="1" language="java" name="myy803.diplomas_mgt_app_skeleton.dao.ProfessorDAO" 
+  <interface id="1" language="java" name="myy803.diplomas_mgt_app_skeleton.repositories.ProfessorRepository" 
     project="diplomas_mgt_app_skeleton" 
     file="/diplomas_mgt_app_skeleton/src/main/java/myy803/diplomas_mgt_app_skeleton/dao/ProfessorDAO.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -12,7 +12,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="2" language="java" name="myy803.diplomas_mgt_app_skeleton.dao.StudentDAO" 
+  <interface id="2" language="java" name="myy803.diplomas_mgt_app_skeleton.repositories.StudentRepository" 
     project="diplomas_mgt_app_skeleton" 
     file="/diplomas_mgt_app_skeleton/src/main/java/myy803/diplomas_mgt_app_skeleton/dao/StudentDAO.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -23,7 +23,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="3" language="java" name="myy803.diplomas_mgt_app_skeleton.dao.ApplicationDAO" 
+  <interface id="3" language="java" name="myy803.diplomas_mgt_app_skeleton.repositories.ApplicationRepository" 
     project="diplomas_mgt_app_skeleton" 
     file="/diplomas_mgt_app_skeleton/src/main/java/myy803/diplomas_mgt_app_skeleton/dao/ApplicationDAO.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -34,7 +34,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="4" language="java" name="myy803.diplomas_mgt_app_skeleton.dao.UserDAO" 
+  <interface id="4" language="java" name="myy803.diplomas_mgt_app_skeleton.repositories.UserRepository" 
     project="diplomas_mgt_app_skeleton" 
     file="/diplomas_mgt_app_skeleton/src/main/java/myy803/diplomas_mgt_app_skeleton/dao/UserDAO.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -45,7 +45,7 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </interface>  
-  <interface id="5" language="java" name="myy803.diplomas_mgt_app_skeleton.dao.ThesisDAO" 
+  <interface id="5" language="java" name="myy803.diplomas_mgt_app_skeleton.repositories.ThesisRepository" 
     project="diplomas_mgt_app_skeleton" 
     file="/diplomas_mgt_app_skeleton/src/main/java/myy803/diplomas_mgt_app_skeleton/dao/ThesisDAO.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -56,7 +56,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="6" language="java" name="myy803.diplomas_mgt_app_skeleton.dao.SubjectDAO" 
+  <interface id="6" language="java" name="myy803.diplomas_mgt_app_skeleton.repositories.SubjectRepository" 
     project="diplomas_mgt_app_skeleton" 
     file="/diplomas_mgt_app_skeleton/src/main/java/myy803/diplomas_mgt_app_skeleton/dao/SubjectDAO.java" binary="false" 
     corner="BOTTOM_RIGHT">    

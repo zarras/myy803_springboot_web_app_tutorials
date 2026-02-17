@@ -6,17 +6,17 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import myy803.diplomas_mgt_app_skeleton.dao.ProfessorDAO;
 import myy803.diplomas_mgt_app_skeleton.model.Application;
 import myy803.diplomas_mgt_app_skeleton.model.Professor;
 import myy803.diplomas_mgt_app_skeleton.model.Subject;
 import myy803.diplomas_mgt_app_skeleton.model.Thesis;
+import myy803.diplomas_mgt_app_skeleton.repositories.ProfessorRepository;
 
 @Service
 public class ProfessorServiceImpl implements ProfessorService {
 
 	@Autowired
-	private ProfessorDAO professorDAO;
+	private ProfessorRepository professorDAO;
 	
 	@Override
 	public Professor retrieveProfile(String professorUsername) {
@@ -24,7 +24,6 @@ public class ProfessorServiceImpl implements ProfessorService {
 		if (professesor.isPresent())
 			return professesor.get();
 		else {
-			System.err.println("XXXX");
 			return new Professor(professorUsername);
 		}
 	}
@@ -40,8 +39,6 @@ public class ProfessorServiceImpl implements ProfessorService {
 		List<Subject> subjects = null;
 		if(professor.isPresent())
 			subjects = professor.get().getSubjects();
-		else 
-			System.err.println("XXXXXXXXX");
 		return subjects;
 	}
 
@@ -55,15 +52,19 @@ public class ProfessorServiceImpl implements ProfessorService {
 
 	@Override
 	public List<Application> listApplications(String profUsername, Integer subjectId) {
+		List<Application> applications = null;
 		Optional<Professor> supervisor = professorDAO.findById(profUsername);
-		List<Application> applications = supervisor.get().getApplications(subjectId);
+		if(supervisor.isPresent())
+			applications = supervisor.get().getApplications(subjectId);
 		return applications;
 	}
 
 	@Override
 	public List<Thesis> listProfessorTheses(String profUsername) {
+		List<Thesis> theses = null;
 		Optional<Professor> professor = professorDAO.findById(profUsername);
-		List<Thesis> theses = professor.get().getTheses();		
+		if(professor.isPresent())
+			theses = professor.get().getTheses();		
 		
 		return theses;
 	}

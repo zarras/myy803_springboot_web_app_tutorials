@@ -53,11 +53,6 @@ public class WebSecurityConfig {
 		return new BCryptPasswordEncoder(); 
 	}
     
-//	@Bean
-//    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
-//        return authConfig.getAuthenticationManager();
-//    }
-
     /*
      * DaoAuthenticationProvider is an AuthenticationProvider implementation that uses 
      * a UserDetailsService 
@@ -81,6 +76,11 @@ public class WebSecurityConfig {
 	@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     	
+			/*
+			 * Customizer authz is an interface
+			 * due to the lambda expression evaluation an instance of the Customizer interface is created
+			 * with a method implementation that calls authz.requestMatchers .....
+			 */
                 http.authorizeHttpRequests(
                 		(authz) -> authz
                 		.requestMatchers("/", "/login", "/register", "/save").permitAll()
@@ -89,11 +89,11 @@ public class WebSecurityConfig {
                         .anyRequest().authenticated()
                 		);
                 
-                http.formLogin(fL -> fL.loginPage("/login")
+                http.formLogin(fL -> 
+                	fL.loginPage("/login")
                 		.failureUrl("/login?error=true")
                         .successHandler(customSecuritySuccessHandler)
-                        .usernameParameter("username")
-                        .passwordParameter("password"));
+                        );
                 
                 http.logout(logOut -> logOut.logoutUrl("/logout")
                 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

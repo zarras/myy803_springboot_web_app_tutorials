@@ -36,9 +36,7 @@
     </select> <br/><br/>
     
     <button type="submit" class="btn btn-info col-2">Register</button> 
-    
-    <a th:href="@{/login}" class="btn btn-primary col-2"> Login</a>
-    
+        
     <div th:if="${param.error}"><p>Registration Error.</p></div> <br/>
     
     <span th:utext="${successMessage}"></span>

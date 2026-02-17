@@ -7,20 +7,20 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import myy803.diplomas_mgt_app_skeleton.dao.ApplicationDAO;
-import myy803.diplomas_mgt_app_skeleton.dao.StudentDAO;
-import myy803.diplomas_mgt_app_skeleton.dao.SubjectDAO;
 import myy803.diplomas_mgt_app_skeleton.model.Application;
 import myy803.diplomas_mgt_app_skeleton.model.Student;
 import myy803.diplomas_mgt_app_skeleton.model.Subject;
+import myy803.diplomas_mgt_app_skeleton.repositories.ApplicationRepository;
+import myy803.diplomas_mgt_app_skeleton.repositories.StudentRepository;
+import myy803.diplomas_mgt_app_skeleton.repositories.SubjectRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService {
 	@Autowired
-	private StudentDAO studentDAO;
+	private StudentRepository studentDAO;
 	
 	@Autowired 
-	SubjectDAO subjectDAO;
+	SubjectRepository subjectDAO;
 	
 	@Override
 	public void saveProfile(Student student) {

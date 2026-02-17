@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import myy803.diplomas_mgt_app_skeleton.dao.UserDAO;
 import myy803.diplomas_mgt_app_skeleton.model.User;
+import myy803.diplomas_mgt_app_skeleton.repositories.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
-	private UserDAO userDAO;
+	private UserRepository userDAO;
 	
 	@Override
 	public void saveUser(User user) {

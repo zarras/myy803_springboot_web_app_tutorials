@@ -66,7 +66,7 @@ public class EmployeeController {
 	
 	
 	@RequestMapping("/save")
-	public String saveEmployee(@ModelAttribute("employee") Employee theEmployee){
+	public String saveEmployee(Employee theEmployee){
 		/*
 		 *  @ModelAttribute("employee") -  this is how to get
 		 *  a reference to the object holding the data entered 
