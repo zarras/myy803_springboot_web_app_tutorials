@@ -1,6 +1,8 @@
 package myy803.diplomas_mgt_app_skeleton.service;
 
+import myy803.diplomas_mgt_app_skeleton.dao.StudentDAO;
 import myy803.diplomas_mgt_app_skeleton.model.Student;
+import myy803.diplomas_mgt_app_skeleton.model.Subject;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -9,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.test.context.jdbc.Sql;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +25,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class StudentServiceImplTest {
 
     @Autowired
-    StudentServiceImpl studentService;
+    StudentService studentService;
+
+    @Autowired
+    StudentDAO studentDAO;
 
     @Autowired
     EntityManager em;
@@ -36,15 +43,50 @@ class StudentServiceImplTest {
         assertNotNull(saved);
         assertEquals("Gerard Meszaros", saved.getFullName());
 
+    }
+
+    @Test
+    void retrieve_existing_profile(){
+
+        Student student = studentService.retrieveProfile("martin");
+        assertNotNull(student);
+        assertEquals("Martin Fowler", student.getFullName());
 
     }
 
     @Test
-    void retrieve_existing_profile() {
-
-        Student student = studentService.retrieveProfile("martin");
+    void retrieve_non_existing_profile_returns_empty_student(){
+        Student student = studentService.retrieveProfile("john");
         assertNotNull(student);
+        assertEquals("john", student.getUsername());
+        assertNull(student.getFullName());
+    }
 
+    @Test
+    void list_available_subjects(){
+
+        List<Subject> subjectList = studentService.listStudentSubjects();
+        assertEquals(5, subjectList.size());
 
     }
+
+    @Test
+    @Transactional
+    void apply_to_subject_creates_application(){
+
+        // initial state of student - 2 applications
+        Student martin = studentService.retrieveProfile("martin");
+        assertNotNull(martin);
+        assertEquals(2, martin.getApplications().size());
+
+        studentService.applyToSubject("martin", 6);
+
+        // final state of student - 3 applications
+        martin = studentService.retrieveProfile("martin");
+        assertNotNull(martin);
+        assertEquals(3, martin.getApplications().size());
+
+    }
+
+
 }
