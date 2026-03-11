@@ -3,6 +3,7 @@ package myy803.diplomas_mgt_app_skeleton.service;
 import java.util.List;
 import java.util.Optional;
 
+import myy803.diplomas_mgt_app_skeleton.dao.SubjectDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +13,16 @@ import myy803.diplomas_mgt_app_skeleton.model.Professor;
 import myy803.diplomas_mgt_app_skeleton.model.Subject;
 import myy803.diplomas_mgt_app_skeleton.model.Thesis;
 
+import javax.transaction.Transactional;
+
 @Service
 public class ProfessorServiceImpl implements ProfessorService {
 
 	@Autowired
 	private ProfessorDAO professorDAO;
+
+	@Autowired
+	private SubjectDAO subjectDAO;
 	
 	@Override
 	public Professor retrieveProfile(String professorUsername) {
@@ -36,18 +42,14 @@ public class ProfessorServiceImpl implements ProfessorService {
 
 	@Override
 	public List<Subject> listProfessorSubjects(String professorId) {
-		Optional<Professor> professor = professorDAO.findById(professorId);
-		List<Subject> subjects = null;
-		if(professor.isPresent())
-			subjects = professor.get().getSubjects();
-		else 
-			System.err.println("XXXXXXXXX");
-		return subjects;
+
+		return subjectDAO.findBySupervisorUsername(professorId);
 	}
+
 
 	@Override
 	public void addSubject(String profUsername, Subject subject) {
-		Optional<Professor> supervisor = professorDAO.findById(profUsername);	
+		Optional<Professor> supervisor = professorDAO.findByIdWithSubjects(profUsername);
 		subject.setSupervisor(supervisor.get());
 		supervisor.get().addSubject(subject);
 		professorDAO.save(supervisor.get());
