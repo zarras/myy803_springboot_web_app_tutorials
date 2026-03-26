@@ -2,13 +2,7 @@ package myy803.diplomas_mgt_app_skeleton.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="students")

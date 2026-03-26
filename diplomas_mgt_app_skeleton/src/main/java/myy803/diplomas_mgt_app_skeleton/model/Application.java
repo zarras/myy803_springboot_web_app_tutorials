@@ -1,14 +1,7 @@
 package myy803.diplomas_mgt_app_skeleton.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="applications")
@@ -28,7 +21,7 @@ public class Application {
 	 *  to be able to easily show information 
 	 *  to both students and profs 
 	 */
-	@ManyToOne(fetch = FetchType.EAGER) 
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "subject_id")
 	private Subject applicationSubject;
 

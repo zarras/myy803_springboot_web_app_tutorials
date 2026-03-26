@@ -3,15 +3,10 @@ package myy803.diplomas_mgt_app_skeleton.model;
 import java.util.Collection;
 import java.util.Collections;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import jakarta.persistence.*;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +21,7 @@ public class User implements UserDetails{
 	@NotBlank(message = "User's name cannot be empty.")
     @Size(min = 5, max = 250)
 	private String username;
-	
+
 	@NotBlank(message = "User's password cannot be empty.")
     @Size(min = 5, max = 250)
 	@Column(name="password")
