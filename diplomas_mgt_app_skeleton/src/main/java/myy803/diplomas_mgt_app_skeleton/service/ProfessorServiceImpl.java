@@ -1,28 +1,33 @@
 package myy803.diplomas_mgt_app_skeleton.service;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import myy803.diplomas_mgt_app_skeleton.model.Application;
 import myy803.diplomas_mgt_app_skeleton.model.Professor;
 import myy803.diplomas_mgt_app_skeleton.model.Subject;
 import myy803.diplomas_mgt_app_skeleton.model.Thesis;
 import myy803.diplomas_mgt_app_skeleton.repositories.ProfessorRepository;
+import myy803.diplomas_mgt_app_skeleton.repositories.SubjectRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProfessorServiceImpl implements ProfessorService {
 
 	@Autowired
+
 	private ProfessorRepository professorDAO;
 	
+	@Autowired
+	private SubjectRepository subjectRepository;
+
+
 	@Override
 	public Professor retrieveProfile(String professorUsername) {
-		Optional<Professor> professesor = professorDAO.findById(professorUsername);
-		if (professesor.isPresent())
-			return professesor.get();
+		Optional<Professor> professor = professorDAO.findById(professorUsername);
+		if (professor.isPresent())
+			return professor.get();
 		else {
 			return new Professor(professorUsername);
 		}
@@ -35,16 +40,14 @@ public class ProfessorServiceImpl implements ProfessorService {
 
 	@Override
 	public List<Subject> listProfessorSubjects(String professorId) {
-		Optional<Professor> professor = professorDAO.findById(professorId);
-		List<Subject> subjects = null;
-		if(professor.isPresent())
-			subjects = professor.get().getSubjects();
-		return subjects;
+
+		return subjectRepository.findBySupervisorUsername(professorId);
 	}
+
 
 	@Override
 	public void addSubject(String profUsername, Subject subject) {
-		Optional<Professor> supervisor = professorDAO.findById(profUsername);	
+		Optional<Professor> supervisor = professorDAO.findByIdWithSubjects(profUsername);
 		subject.setSupervisor(supervisor.get());
 		supervisor.get().addSubject(subject);
 		professorDAO.save(supervisor.get());
