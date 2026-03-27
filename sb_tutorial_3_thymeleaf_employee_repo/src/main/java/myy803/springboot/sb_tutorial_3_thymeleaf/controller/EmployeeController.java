@@ -67,13 +67,6 @@ public class EmployeeController {
 	
 	@RequestMapping("/save")
 	public String saveEmployee(Employee theEmployee){
-		/*
-		 *  @ModelAttribute("employee") -  this is how to get
-		 *  a reference to the object holding the data entered 
-		 *  in a form.
-		 *  https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-ann-modelattrib
-		 *
-		 */
 				
 		// save the employee
 		employeeService.save(theEmployee);
