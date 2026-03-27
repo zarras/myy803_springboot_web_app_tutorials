@@ -6,17 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
-import myy803.springboot.sb_tutorial_3_thymeleaf.mappers.EmployeeMapper;
+import myy803.springboot.sb_tutorial_3_thymeleaf.model.Employee;
+import myy803.springboot.sb_tutorial_3_thymeleaf.repos.EmployeeRepository;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
-	private EmployeeMapper employeeRepository;
+	private EmployeeRepository employeeRepository;
 	
 	@Autowired
-	public EmployeeServiceImpl(EmployeeMapper theEmployeeRepository) {
+	public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
 		employeeRepository = theEmployeeRepository;
 	}
 	

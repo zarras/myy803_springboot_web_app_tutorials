@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import myy803.springboot.sb_tutorial_3_thymeleaf.controller.EmployeeController;
-import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
+import myy803.springboot.sb_tutorial_3_thymeleaf.model.Employee;
 
 
 @SpringBootTest

@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
-import myy803.springboot.sb_tutorial_3_thymeleaf.mappers.EmployeeMapper;
+import myy803.springboot.sb_tutorial_3_thymeleaf.model.Employee;
+import myy803.springboot.sb_tutorial_3_thymeleaf.repos.EmployeeRepository;
 
 @SpringBootTest
 @TestPropertySource(
@@ -16,7 +16,7 @@ import myy803.springboot.sb_tutorial_3_thymeleaf.mappers.EmployeeMapper;
 class TestEmployeeMapperJpa {
 	
 	@Autowired 
-	EmployeeMapper employeeMapper;
+	EmployeeRepository employeeMapper;
 		
 	@Test
 	void testEmployeeDAOJpaImplIsNotNull() {

@@ -2,7 +2,7 @@ package myy803.springboot.sb_tutorial_3_thymeleaf.service;
 
 import java.util.List;
 
-import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
+import myy803.springboot.sb_tutorial_3_thymeleaf.model.Employee;
 
 public interface EmployeeService {
 

@@ -1,4 +1,4 @@
-package myy803.springboot.sb_tutorial_3_thymeleaf.entity;
+package myy803.springboot.sb_tutorial_3_thymeleaf.model;
 
 import jakarta.persistence.*;
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
+import myy803.springboot.sb_tutorial_3_thymeleaf.model.Employee;
 import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeService;
 
 @Controller

@@ -11,9 +11,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-
-import myy803.springboot.sb_tutorial_3_thymeleaf.entity.Employee;
-import myy803.springboot.sb_tutorial_3_thymeleaf.mappers.*;
+import myy803.springboot.sb_tutorial_3_thymeleaf.model.Employee;
+import myy803.springboot.sb_tutorial_3_thymeleaf.repos.*;
 import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeService;
 import myy803.springboot.sb_tutorial_3_thymeleaf.service.EmployeeServiceImpl;
 
@@ -38,7 +37,7 @@ class TestEmployeeServiceWithMocks {
 	EmployeeService employeeService;
 	
 	@MockBean
-	EmployeeMapper employeeRepository;
+	EmployeeRepository employeeRepository;
 	
 	@Test
 	void testEmployeeDAOJpaImplIsNotNull() {
