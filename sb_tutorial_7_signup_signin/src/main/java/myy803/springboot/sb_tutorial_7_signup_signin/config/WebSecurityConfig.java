@@ -4,6 +4,7 @@ import myy803.springboot.sb_tutorial_7_signup_signin.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -30,7 +31,6 @@ public class WebSecurityConfig {
      * Authentication configuration
      *
      */
-
     @Autowired
     private CustomSecuritySuccessHandler customSecuritySuccessHandler;
 
@@ -62,10 +62,10 @@ public class WebSecurityConfig {
         return authProvider;
     }
 
+
     /*
      * Authorization configuration ....
      */
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -75,11 +75,20 @@ public class WebSecurityConfig {
          * with a method implementation that calls authz.requestMatchers .....
          */
         http.authorizeHttpRequests(
-                (authz) -> authz
+                (authorize) -> authorize
                         .requestMatchers("/", "/login", "/register", "/save").permitAll()
                         .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
                         .requestMatchers("/user/**").hasAnyAuthority("USER") // ??? ZAS is this needed ??? - changed from account to user
                         .anyRequest().authenticated()
+                /*
+                 * The way to read the above rules is
+                 * if the request is
+                 * - /, or /login, or /register or /save then permit them without authorization,
+                 * - /admin/** require the ADMIN authority,
+                 * - /user/** require the USER authority;
+                 * else, only require authentication
+                 */
+
         );
 
         http.formLogin(fL ->
