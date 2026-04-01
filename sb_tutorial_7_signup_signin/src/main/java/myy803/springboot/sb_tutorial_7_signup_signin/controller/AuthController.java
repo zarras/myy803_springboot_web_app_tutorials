@@ -34,7 +34,7 @@ public class AuthController {
         }
 
         userService.saveUser(user);
-        model.addAttribute("successMessage", "User registered successfully!");
+        model.addAttribute("successMessage", "User registered successfully!</b>");
 
         return "auth/signin";
     }

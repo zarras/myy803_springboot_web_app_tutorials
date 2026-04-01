@@ -14,47 +14,47 @@ import org.springframework.security.web.servlet.util.matcher.PathPatternRequestM
 
 
 /*
- * @Configuration Indicates that a class declares one or more 
- * @Bean methods and may be processed by the 
- * Spring container to generate bean definitions 
- * and service requests for those beans at runtime. 
- * The class may also have code that configures other 
- * spring functionalities. 
+ * @Configuration Indicates that a class declares one or more
+ * @Bean methods and may be processed by the
+ * Spring container to generate bean definitions
+ * and service requests for those beans at runtime.
+ * The class may also have code that configures other
+ * spring functionalities.
  */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-	/*
-	 * 
-	 * Authentication configuration
-	 * 
-	 */
-	
+    /*
+     *
+     * Authentication configuration
+     *
+     */
+
     @Autowired
     private CustomSecuritySuccessHandler customSecuritySuccessHandler;
-    
-	@Bean 
-	public UserDetailsService userDetailsService() { 
-		/*
-		 * We need to tell spring boot which user details service implementation to use
-		 * If we dont the default will be used 
-		 */
-		 return new UserServiceImpl(); 
-	}
-	 
-	@Bean 
-	public BCryptPasswordEncoder passwordEncoder() { 
-		return new BCryptPasswordEncoder(); 
-	}
-    
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        /*
+         * We need to tell spring boot which user details service implementation to use
+         * If we dont the default will be used
+         */
+        return new UserServiceImpl();
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     /*
-     * DaoAuthenticationProvider is an AuthenticationProvider implementation that uses 
-     * a UserDetailsService 
-     * and PasswordEncoder 
+     * DaoAuthenticationProvider is an AuthenticationProvider implementation that uses
+     * a UserDetailsService
+     * and PasswordEncoder
      * to authenticate a username and password.
      */
-	@Bean
+    @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
@@ -63,38 +63,39 @@ public class WebSecurityConfig {
     }
 
     /*
-     * Authorization configuration .... 
+     * Authorization configuration ....
      */
-    
-	@Bean
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    	
-			/*
-			 * Customizer authz is an interface
-			 * due to the lambda expression evaluation an instance of the Customizer interface is created
-			 * with a method implementation that calls authz.requestMatchers .....
-			 */
-                http.authorizeHttpRequests(
-                		(authz) -> authz
-                		.requestMatchers("/", "/login", "/register", "/save").permitAll()
+
+        /*
+         * Customizer authz is an interface
+         * due to the lambda expression evaluation an instance of the Customizer interface is created
+         * with a method implementation that calls authz.requestMatchers .....
+         */
+        http.authorizeHttpRequests(
+                (authz) -> authz
+                        .requestMatchers("/", "/login", "/register", "/save").permitAll()
                         .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
                         .requestMatchers("/user/**").hasAnyAuthority("USER") // ??? ZAS is this needed ??? - changed from account to user
                         .anyRequest().authenticated()
-                		);
-                
-                http.formLogin(fL -> 
-                	fL.loginPage("/login")
-                		.failureUrl("/login?error=true")
+        );
+
+        http.formLogin(fL ->
+                fL.loginPage("/login")
+                        // the error=true param is required so that the view shows appropriate failure message
+                        .failureUrl("/login?error=true")
                         .successHandler(customSecuritySuccessHandler)
-                        );
-                
-                http.logout(logOut -> logOut.logoutUrl("/logout")
-                		.logoutRequestMatcher(PathPatternRequestMatcher.withDefaults().matcher("/logout"))
-                		.logoutSuccessUrl("/")
-                		);
+        );
 
-                http.authenticationProvider(authenticationProvider());
+        http.logout(logOut -> logOut.logoutUrl("/logout")
+                .logoutRequestMatcher(PathPatternRequestMatcher.withDefaults().matcher("/logout"))
+                .logoutSuccessUrl("/")
+        );
 
-                return http.build();
+        http.authenticationProvider(authenticationProvider());
+
+        return http.build();
     }
 }

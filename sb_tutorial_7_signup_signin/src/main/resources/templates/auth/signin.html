@@ -23,10 +23,13 @@
         <input type="text" name="username" th:placeholder="Username" /> <br /><br />
         <input type="password" th:placeholder="Password" name="password" /> <br /><br />
         <button type="Submit" class="btn btn-info col-2"> Login </button>
-        <a th:href="@{register}" class="btn btn-primary col-2"> Register </a><br />
-        
+        <a th:href="@{/register}" class="btn btn-primary col-2"> Register </a><br />
+
+        <!-- Checks whether the http error param is present, which indicates login failure -->
+        <!-- th:if enables conditional rendering of the particular element (div) -->
         <div th:if="${param.error}"><p>Username or Password is invalid.</p></div> <br/> 
-   
+
+        <!-- The text in successMessage variable is treated as html (not escaped) -->
    		<div th:utext="${successMessage}"></div>
     </form>
 
