@@ -24,8 +24,6 @@ public class EmployeeController {
 		employeeService = theEmployeeService;
 	}
 	
-	// add mapping for "/list"
-
 	@RequestMapping("/list")
 	public String listEmployees(Model theModel) {
 		
@@ -50,11 +48,11 @@ public class EmployeeController {
 	}
 
 	@RequestMapping("/showFormForUpdate")
-	public String showFormForUpdate(@RequestParam("employeeId") int theId,
+	public String showFormForUpdate(int employeeId,
 									Model theModel) {
 		
 		// get the employee from the service
-		Employee theEmployee = employeeService.findById(theId);
+		Employee theEmployee = employeeService.findById(employeeId);
 		
 		// set employee as a model attribute to pre-populate the form
 		theModel.addAttribute("employee", theEmployee);
@@ -77,10 +75,10 @@ public class EmployeeController {
 	
 	
 	@RequestMapping("/delete")
-	public String delete(@RequestParam("employeeId") int theId) {
+	public String delete(int employeeId) {
 		
 		// delete the employee
-		employeeService.deleteById(theId);
+		employeeService.deleteById(employeeId);
 		
 		// redirect to /employees/list ACTION
 		return "redirect:/employees/list";
